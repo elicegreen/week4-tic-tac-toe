@@ -59,13 +59,13 @@ def startGame(startingPlayer, board):
 
     turn = startingPlayer
     #This assignes the choice for the first player 'X' or 'Y' (which is entered when the function
-    #is called in the runner.py file) to the value 'turn'.
+    #is called in the runner.py file) to the variable 'turn'.
     for i in range(9):
     #Loop will run 10 times. First time to display starting-empty board + 9 times for all
     #possible turns (spaces to mark) in game
         printBoard(board)
         #Calls printBoard() function so to visually display board with current
-        #values for each key in 'board' dictionary (displays X and O positions)
+        #items for each key in 'board' dictionary (displays X and O positions)
         print('Turn for ' + turn + '. Move on which space?')
         #Displays message requesting current player to select a space to mark 
         move = input()
@@ -82,10 +82,11 @@ def startGame(startingPlayer, board):
             #Assignes player's new choice to the variable 'move'
 
         board[move] = turn
-        #Assignes user's choice as value for the matching key in the 'board' dictionary.
+        #Assignes the current player's letter ('X' or 'O') as the item for the key in the 'board'
+        #dictionary that matches the player's selection.
         if( checkWinner(board, 'X') ):
         #Calls and uses checkWinner function to identify if dictionary currently has
-        #three keys that contain the value 'X' that are in one row
+        #three keys that have the item 'X' that are in one row
         #(horizinal, vertical or diagonal)
             print('X wins!')
             #If above condition is true, displays message that X won.
@@ -93,7 +94,7 @@ def startGame(startingPlayer, board):
             #With an announced winner, the checking function is exited.
         elif ( checkWinner(board, 'O') ):
         #Calls and uses checkWinner function to identify if dictionary currently has
-        #three keys that contain the value 'O' that are in one row
+        #three keys that have the item  'O' that are in one row
         #(horizinal, vertical or diagonal)
             print('O wins!')
             #If above condition is true, displays message that O won.
@@ -101,7 +102,7 @@ def startGame(startingPlayer, board):
             #With an announced winner, the checking function is exited.
                
         if turn == 'X':
-        #Checks if the current value for 'turn' is 'X' (if current player is 'X')
+        #Checks if the current value for 'turn' is 'X' (if the current player is 'X')
             turn = 'O'
             #If so, re-assignes the value for 'turn' to 'O' to switch between the two players.
         else:
